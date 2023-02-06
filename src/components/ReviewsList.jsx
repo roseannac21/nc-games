@@ -17,7 +17,7 @@ const ReviewsList = () => {
 
   return (
     <>
-    <h2>Reviews</h2>
+    <h2 id='review-header'>Reviews</h2>
     <ul>
       {reviewsList.map((review) => {
         return <SingleReview key={review.review_id} review={review}/>
@@ -25,6 +25,7 @@ const ReviewsList = () => {
     </ul>
     </>
   )
+
 }
 
 export default ReviewsList
