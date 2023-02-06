@@ -10,10 +10,10 @@ const ReviewsList = () => {
 
   useEffect(() => {
     axios.get("https://nc-games-no2.onrender.com/api/reviews")
-    .then((data) => {
-      setReviewsList(data.data)
+    .then(({data}) => {
+      setReviewsList(data)
     });
-  })
+  }, [])
 
   return (
     <>
