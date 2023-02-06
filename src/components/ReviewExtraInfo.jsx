@@ -24,15 +24,19 @@ const ReviewExtraInfo = () => {
 
     return (
         <>
+        <div className="review-info">
         <h1>{review.title}</h1>
         <h3>Written by: {review.owner}</h3>
-        <p>Created at: {review.created_at}</p>
+        <time>Created at: {review.created_at}</time>
         <p>Category: {review.category}</p>
         <p>Votes: {review.votes}</p>
         <img src={review.review_img_url} alt={review.title}></img>
         <p>{review.review_body}</p>
+        </div>
+        <section id="comments-section">
         <h2>Comments</h2>
         <Comments review_id={review_id}/>
+        </section>
         </>
     )
 

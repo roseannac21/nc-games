@@ -21,18 +21,18 @@ const Comments = ({review_id}) => {
 
     return (
         <>
-        <ul>
+        {/* <ul> */}
             {comments.map((comment) => {
              return (
               <li key={comment.comment_id} className="comment">
                 <p>{comment.body}</p>
                 <p>Written by: {comment.author}</p>
-                <p>Created at: {comment.created_at}</p>
+                <time>Created at: {comment.created_at}</time>
                 <p>Votes: {comment.votes}</p>
               </li>
               )
             })}
-        </ul>
+        {/* </ul> */}
         </>
     )
 }
