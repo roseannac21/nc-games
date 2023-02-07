@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import Comments from "./Comments";
+import PostComment from "./PostComment";
 
 const ReviewExtraInfo = () => {
     const {review_id} = useParams();
@@ -31,6 +32,7 @@ const ReviewExtraInfo = () => {
         <p>Votes: {review.votes}</p>
         <img src={review.review_img_url} alt={review.title}></img>
         <p>{review.review_body}</p>
+        <PostComment review_id={review_id}/>
         <Comments review_id={review_id}/>
         </div>
         
