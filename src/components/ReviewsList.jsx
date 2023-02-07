@@ -24,7 +24,9 @@ const ReviewsList = () => {
 
   return (
     <>
-    <h2 id='review-header'>Reviews</h2>
+    <h2 id='reviews-title'>Reviews</h2>
+    <h3>Browse through the reviews written by fellow board game lovers.</h3>
+    <h4>Click on review titles to read more!</h4>
     <ul>
       {reviewsList.map((review) => {
         return <SingleReview key={review.review_id} review={review}/>
