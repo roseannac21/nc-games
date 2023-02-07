@@ -11,6 +11,7 @@ const ReviewsList = () => {
 
   useEffect(() => {
     setIsLoading(true)
+
     gamesAPI.get("/reviews")
     .then(({data}) => {
       setReviewsList(data)
