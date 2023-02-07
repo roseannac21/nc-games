@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import ReviewsList from './components/ReviewsList';
 import ReviewExtraInfo from './components/ReviewExtraInfo';
+import Comments from './components/Comments';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
