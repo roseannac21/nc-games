@@ -7,13 +7,20 @@ import SingleReview from './SingleReview';
 const ReviewsList = () => {
 
   const [reviewsList, setReviewsList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     axios.get("https://nc-games-no2.onrender.com/api/reviews")
-    .then((data) => {
-      setReviewsList(data.data)
+    .then(({data}) => {
+      setReviewsList(data)
+      setIsLoading(false)
     });
   })
+
+  if (isLoading) {
+    return <p>Loading reviews...</p>
+  }
 
   return (
     <>
