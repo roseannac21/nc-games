@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/reviews" element={<ReviewsList/>}/>
-          <Route path="/reviews/:review_id" element={<><ReviewExtraInfo/><Comments/></>}/>
+          <Route path="/reviews/:review_id" element={<ReviewExtraInfo/>}/>
         </Routes>
       </section>
     </div>

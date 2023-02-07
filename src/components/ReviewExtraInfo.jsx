@@ -16,14 +16,13 @@ const ReviewExtraInfo = () => {
             setReview(data)
             setIsLoading(false)
         })
-    }, [review_id]);
+    }, []);
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <p>Loading review...</p>
       };
 
     return (
-        <>
         <div className="review-info">
         <h1>{review.title}</h1>
         <h3>Written by: {review.owner}</h3>
@@ -32,12 +31,9 @@ const ReviewExtraInfo = () => {
         <p>Votes: {review.votes}</p>
         <img src={review.review_img_url} alt={review.title}></img>
         <p>{review.review_body}</p>
-        </div>
-        <section id="comments-section">
-        <h2>Comments</h2>
         <Comments review_id={review_id}/>
-        </section>
-        </>
+        </div>
+        
     )
 
 

@@ -8,10 +8,20 @@
   padding: 20px;
 }
 
-.nav-item {
+Link.nav-item, :link {
   color: aliceblue;
   margin: 15px;
 }
+
+/* Link.nav-item, :visited {
+  color: aliceblue;
+  margin: 15px;
+}
+
+Link.nav-item, :active {
+  color: aliceblue;
+  margin: 15px;
+} */
 
 #home {
   font-size:xx-large;
@@ -20,6 +30,7 @@
 
 .review {
   padding: 40px;
+  list-style: none;
 }
 
 #review-header {
@@ -38,4 +49,28 @@
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
+  list-style: none;
+}
+
+#reviews-title {
+  font-size: xx-large;
+}
+
+h2#review-title, :link {
+  color: black;
+  text-decoration: none;
+}
+
+h2#review-title, :visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* #review-title, :hover {
+  color: rgb(255, 0, 0);
+} */
+
+h2#review-title, :active {
+  color: black;
+  text-decoration: none;
 }

@@ -5,23 +5,25 @@ import { useState } from "react";
 const Comments = ({review_id}) => {
     
     const [comments, setComments] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         axios.get(`https://nc-games-no2.onrender.com/api/reviews/${review_id}/comments`)
         .then(({data}) => {
             setComments(data)
             setIsLoading(false)
         })
-    }, [review_id]);
+    }, []);
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <p>Loading comments...</p>
       }
 
     return (
         <>
-        {/* <ul> */}
+        <h2>Comments</h2>
+        <ul>
             {comments.map((comment) => {
              return (
               <li key={comment.comment_id} className="comment">
@@ -32,7 +34,7 @@ const Comments = ({review_id}) => {
               </li>
               )
             })}
-        {/* </ul> */}
+        </ul>
         </>
     )
 }
