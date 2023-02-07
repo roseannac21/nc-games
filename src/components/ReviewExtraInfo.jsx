@@ -1,17 +1,20 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
+import gamesAPI from "../utils/api";
+import Votes from "./Votes";
 
 const ReviewExtraInfo = () => {
     const {review_id} = useParams();
 
-    const [review, setReview] = useState({});
+    const [review, setReview] = useState({});    
+    const [likeCount, setLikeCount] = useState(0)
 
     useEffect(() => {
-        axios.get(`https://nc-games-no2.onrender.com/api/reviews/${review_id}`)
+        gamesAPI.get(`/reviews/${review_id}`)
         .then(({data}) => {
             setReview(data)
+            setLikeCount(data.votes)
         })
     }, [review_id]);
 
@@ -21,7 +24,7 @@ const ReviewExtraInfo = () => {
         <h3>Written by: {review.owner}</h3>
         <p>Created at: {review.created_at}</p>
         <p>Category: {review.category}</p>
-        <p>Votes: {review.votes}</p>
+        <Votes setLikeCount={setLikeCount} likeCount = {likeCount} review={review}/>
         <img src={review.review_img_url} alt={review.title}></img>
         <p>{review.review_body}</p>
         </>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
-import axios from "axios";
 import SingleReview from './SingleReview';
+import gamesAPI from '../utils/api';
 
 const ReviewsList = () => {
 
@@ -11,7 +11,7 @@ const ReviewsList = () => {
 
   useEffect(() => {
     setIsLoading(true)
-    axios.get("https://nc-games-no2.onrender.com/api/reviews")
+    gamesAPI.get("/reviews")
     .then(({data}) => {
       setReviewsList(data)
       setIsLoading(false)
