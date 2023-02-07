@@ -16,7 +16,7 @@ const ReviewsList = () => {
       setReviewsList(data)
       setIsLoading(false)
     });
-  })
+  }, [])
 
   if (isLoading) {
     return <p>Loading reviews...</p>

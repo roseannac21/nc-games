@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import ReviewsList from './components/ReviewsList';
+import ReviewExtraInfo from './components/ReviewExtraInfo';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/reviews" element={<ReviewsList/>}/>
+          <Route path="/reviews/:review_id" element={<ReviewExtraInfo/>}/>
         </Routes>
       </section>
     </div>
