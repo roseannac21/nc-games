@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-color: #d1f6ed;
-  background-color: rgb(226, 251, 251);
 }
 
 .nav-bar {
@@ -9,7 +8,7 @@
   padding: 20px;
 }
 
-.Link.nav-item, :link {
+.nav-item {
   color: aliceblue;
   margin: 15px;
 }
@@ -25,15 +24,6 @@
 #review-header {
   font-size: xx-large
 }
-/* Link.nav-item, :visited {
-  color: aliceblue;
-  margin: 15px;
-
-
-Link.nav-item, :active {
-  color: aliceblue;
-  margin: 15px;
-} */
 
 #home {
   font-size:xx-large;
@@ -68,19 +58,10 @@ Link.nav-item, :active {
   font-size: xx-large;
 }
 
-h2#review-title, :link {
+#review-title {
   color: black;
   text-decoration: none;
 }
-
-h2#review-title, :visited {
-  color: black;
-  text-decoration: none;
-}
-
-/* #review-title, :hover {
-  color: rgb(255, 0, 0);
-} */
 
 h2#review-title, :active {
   color: black;
