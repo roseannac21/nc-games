@@ -23,6 +23,7 @@ const Comments = ({review_id}) => {
     return (
         <>
         <h2>Comments</h2>
+        { comments.length === 0 ? <p>No comments to display</p> : null }
         <ul>
             {comments.map((comment) => {
              return (
