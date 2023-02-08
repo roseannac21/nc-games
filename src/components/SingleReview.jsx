@@ -6,6 +6,7 @@ const SingleReview = ({review}) => {
                 event.preventDefault()
         }
 
+
 return (
         <li key={review.review_id} className="review">
                 <Link to={`/reviews/${review.review_id}`} onSubmit={handleSubmit}>
@@ -13,6 +14,7 @@ return (
                 <img src={review.review_img_url} alt={review.title}/>
                 <p>Written by: {review.owner}</p>
                 <p>Created at: {review.created_at}</p>
+                <p>Votes: {review.votes}</p>
                 </Link>
         </li>
     )
