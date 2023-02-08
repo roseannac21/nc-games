@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom"
+const dayjs = require("dayjs")
 
 const SingleReview = ({review}) => {
 
         const handleSubmit = (event) => {
                 event.preventDefault()
         }
+
+        const dateTime = dayjs(review.created_at).format("DD-MM-YYYY @ hh:mm");
 
 return (
         <li key={review.review_id} className="review">
@@ -13,7 +16,7 @@ return (
                 </Link>
                 <img src={review.review_img_url} alt={review.title}/>
                 <p>Written by: {review.owner}</p>
-                <p>Created at: {review.created_at}</p>
+                <p>Created at: {dateTime}</p>
         </li>
     )
 }

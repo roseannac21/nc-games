@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   background-color: #d1f6ed;
+  display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%; */
 }
 
 .nav-bar {
@@ -19,6 +22,13 @@
 
 .review {
   padding: 40px;
+  display: inline-block;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  width: 20vw;
+  height: 20vh;
+  margin: 2vh;
+  border-color: black;
 }
 
 #review-header {
