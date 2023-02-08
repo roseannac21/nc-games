@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import PostComment from "./PostComment";
 
 const Comments = ({review_id}) => {
     
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [postSuccessful, setPostSuccessful] = useState(false)
 
     useEffect(() => {
         setIsLoading(true);
@@ -14,7 +16,7 @@ const Comments = ({review_id}) => {
             setComments(data)
             setIsLoading(false)
         })
-    }, []);
+    }, [review_id, postSuccessful]);
 
     if (isLoading) {
         return <p>Loading comments...</p>
@@ -23,7 +25,9 @@ const Comments = ({review_id}) => {
     return (
         <>
         <h2>Comments</h2>
-        <ul>
+        <ol>
+        <PostComment review_id={review_id} setComments={setComments} setPostSuccessful={setPostSuccessful}/>
+        {postSuccessful ? <p>Your comment was posted successfully!</p> : null}
             {comments.map((comment) => {
              return (
               <li key={comment.comment_id} className="comment">
@@ -34,7 +38,7 @@ const Comments = ({review_id}) => {
               </li>
               )
             })}
-        </ul>
+        </ol>
         </>
     )
 }
