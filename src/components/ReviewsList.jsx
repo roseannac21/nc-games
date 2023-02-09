@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 import SingleReview from './SingleReview';
 import gamesAPI from '../utils/api';
 
@@ -13,9 +15,15 @@ const ReviewsList = () => {
 
   let url = "/reviews"
 
-  if (sortBy && orderBy) {
+  if (categoryName === undefined && sortBy && orderBy) {
     url = url.concat(`?sort_by=${sortBy}&order=${orderBy}`)
+ 
+  if (categoryName && sortBy && orderBy) {
+    url = url.concat(`?category=${categoryName}&sort_by=${sortBy}&order=${orderBy}`)
   }
+
+  const [searchParams] = useSearchParams();
+  const categoryName = searchParams.get("category");
 
   useEffect(() => {
     setIsLoading(true)
@@ -24,7 +32,7 @@ const ReviewsList = () => {
       setReviewsList(data)
       setIsLoading(false)
     });
-  }, [sortBy, orderBy])
+  }, [sortBy, orderBy, categoryName])
 
   if (isLoading) {
     return <p>Loading reviews...</p>
