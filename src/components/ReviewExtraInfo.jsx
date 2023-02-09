@@ -19,7 +19,7 @@ const ReviewExtraInfo = () => {
             setReview(data)
             setLikeCount(data.votes)
         })
-    }, []);
+    }, [review_id]);
 
     if (isLoading) {
         return <p>Loading review...</p>
