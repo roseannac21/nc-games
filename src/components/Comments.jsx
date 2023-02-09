@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-const dayjs = require("dayjs")
 import PostComment from "./PostComment";
+const dayjs = require("dayjs")
 
 const Comments = ({review_id}) => {
     
@@ -41,7 +41,7 @@ const Comments = ({review_id}) => {
               </li>
               )
             })}
-        </ol>
+        </ul>
         </>
     )
 }
