@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-const dayjs = require("dayjs")
 import PostComment from "./PostComment";
+import DeleteComment from "./DeleteComment";
+const dayjs = require("dayjs")
 
 const Comments = ({review_id}) => {
     
@@ -23,6 +24,7 @@ const Comments = ({review_id}) => {
         return <p>Loading comments...</p>
       }
 
+
     return (
         <>
         <h2>Comments</h2>
@@ -38,10 +40,11 @@ const Comments = ({review_id}) => {
                 <p>Written by: {comment.author}</p>
                 <time>Created at: {dateTime}</time>
                 <p>Votes: {comment.votes}</p>
+                <DeleteComment comment_id={comment.comment_id}/>
               </li>
               )
             })}
-        </ol>
+        </ul>
         </>
     )
 }
