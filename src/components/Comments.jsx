@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
+import PostComment from "./PostComment";
 const dayjs = require("dayjs")
 
 const Comments = ({review_id}) => {
