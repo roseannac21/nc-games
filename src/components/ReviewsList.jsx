@@ -41,6 +41,7 @@ const ReviewsList = () => {
     <p>Order: {orderBy}</p>
     <button class="clicked" onClick={() => setOrderBy("desc")}>Descending (default)</button>
     <button class="clicked" onClick={() => setOrderBy("asc")}>Ascending</button>
+    { reviewsList.length === 0 ? <p>No reviews</p> : null}
     <ul>
       {reviewsList.map((review) => {
         return <SingleReview key={review.review_id} review={review}/>

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Category = ({category}) => {
     return (
+        <Link to={`/reviews?category=${category.slug}`}>
         <li id="category-li">
             <p>Filter by: </p>
-          <Link to={`/reviews?category=${category.slug}`}>
             {category.slug}
-          </Link>
         </li>
+        </Link>
       );
 }
 
