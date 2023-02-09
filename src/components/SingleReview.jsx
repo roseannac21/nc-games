@@ -16,6 +16,8 @@ return (
                 <img src={review.review_img_url} alt={review.title} id="review-list-img"/>
                 <p>Written by: {review.owner}</p>
                 <p>Created at: {dateTime}</p>
+                <p>Votes: {review.votes}</p>
+                <p>Comments: {review.comment_count}</p>
                 </Link>
         </li>
     )
