@@ -2,11 +2,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 const dayjs = require("dayjs")
+import PostComment from "./PostComment";
 
 const Comments = ({review_id}) => {
     
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [postSuccessful, setPostSuccessful] = useState(false)
 
     useEffect(() => {
         setIsLoading(true);
@@ -15,7 +17,7 @@ const Comments = ({review_id}) => {
             setComments(data)
             setIsLoading(false)
         })
-    }, [review_id]);
+    }, [review_id, postSuccessful]);
 
     if (isLoading) {
         return <p>Loading comments...</p>
@@ -26,6 +28,8 @@ const Comments = ({review_id}) => {
         <h2>Comments</h2>
         { comments.length === 0 ? <p>No comments to display</p> : null }
         <ul>
+        <PostComment review_id={review_id} setComments={setComments} setPostSuccessful={setPostSuccessful}/>
+        {postSuccessful ? <p>Your comment was posted successfully!</p> : null}
             {comments.map((comment) => {
              const dateTime = dayjs(comment.created_at).format("DD-MM-YYYY hh:mm")
              return (
@@ -37,7 +41,7 @@ const Comments = ({review_id}) => {
               </li>
               )
             })}
-        </ul>
+        </ol>
         </>
     )
 }

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import SingleReview from './SingleReview';
+import gamesAPI from '../utils/api';
 
 const ReviewsList = () => {
 
