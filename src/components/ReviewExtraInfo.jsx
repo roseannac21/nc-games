@@ -17,13 +17,13 @@ const ReviewExtraInfo = () => {
             setReview(data)
             setIsLoading(false)
         })
-    }, []);
+    }, [review_id]);
 
     if (isLoading) {
         return <p>Loading review...</p>
       };
 
-      const dateTime = dayjs(review.created_at).format("DD-MM-YYYY @ hh:mm");
+      const dateTime = dayjs(review.created_at).format("DD-MM-YYYY hh:mm");
 
     return (
         <div className="review-info">
