@@ -6,18 +6,20 @@ import Votes from "./Votes";
 import Comments from "./Comments";
 
 const ReviewExtraInfo = () => {
-    const {review_id} = useParams();
 
+    const {review_id} = useParams();
 
     const [review, setReview] = useState({});    
     const [likeCount, setLikeCount] = useState(0)
-
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
+        setIsLoading(true)
         gamesAPI.get(`/reviews/${review_id}`)
         .then(({data}) => {
             setReview(data)
             setLikeCount(data.votes)
+            setIsLoading(false)
         })
     }, [review_id]);
 

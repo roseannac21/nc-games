@@ -16,7 +16,6 @@ useEffect(() => {
     if(submitted) {
         setAddingComment(true)
         const postComment = () => {
-            // console.log(commentData)
             axios.post(`https://nc-games-no2.onrender.com/api/reviews/${review_id}/comments`, commentData)
             .then(({data}) => {
                 const newComment = data.comment[0];
@@ -48,15 +47,15 @@ if (addingComment) {
 
 return (
     <>
+    <label for="form">Add a comment:</label>
     <form id="form" onSubmit={handleSubmit}>
         <input
         type="text"
-        placeholder="Write your thoughts here"
         value={commentData.body}
         onChange={(event) => {
             setCommentData({...commentData, body:event.target.value})
         }} />
-    <button>Add comment</button>
+    <button>Submit</button>
     </form>
     </>
 )
