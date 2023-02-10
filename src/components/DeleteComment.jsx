@@ -32,7 +32,7 @@ const DeleteComment = ({comment, loggedInUser, setDeleteSuccessful, setComments}
     return (
         <>
         {/* <button onClick={() => setDeleting(true)}>Delete this comment</button> */}
-        <button onClick={handleDeletion}>Delete this comment</button>
+        <button id="delete-button" onClick={handleDeletion}>Delete this comment</button>
         { deleting ? <p>Deleting comment...</p> : null }
         </>
     )

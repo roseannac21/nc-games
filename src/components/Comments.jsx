@@ -36,7 +36,7 @@ const Comments = ({review_id, loggedInUser}) => {
              const dateTime = dayjs(comment.created_at).format("DD-MM-YYYY hh:mm")
              return (
               <li key={comment.comment_id} className="comment">
-                <p>{comment.body}</p>
+                <p id="comment-body">{comment.body}</p>
                 <p>Written by: {comment.author}</p>
                 <time>Created at: {dateTime}</time>
                 <p>Votes: {comment.votes}</p>

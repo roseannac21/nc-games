@@ -50,6 +50,7 @@ return (
     <label htmlFor="form">Add a comment:</label>
     <form id="form" onSubmit={handleSubmit}>
         <input
+        required
         type="text"
         value={commentData.body}
         onChange={(event) => {
