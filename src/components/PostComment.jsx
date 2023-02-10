@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const PostComment = ({review_id, setComments, setPostSuccessful}) => {
+const PostComment = ({review_id, setComments, setPostSuccessful, loggedInUser}) => {
 
 const [commentData, setCommentData] = useState({
-    author: "jessjelly",
+    author: loggedInUser,
     body: "" 
 });
 
@@ -47,7 +47,7 @@ if (addingComment) {
 
 return (
     <>
-    <label for="form">Add a comment:</label>
+    <label htmlFor="form">Add a comment:</label>
     <form id="form" onSubmit={handleSubmit}>
         <input
         type="text"
