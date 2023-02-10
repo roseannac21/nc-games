@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import { useSearchParams } from "react-router-dom";
 import SingleReview from './SingleReview';
+import ErrorHandler from './ErrorHandler';
 import gamesAPI from '../utils/api';
 
-const ReviewsList = () => {
+const ReviewsList = ({errState, setErrState}) => {
 
   const [reviewsList, setReviewsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
@@ -16,18 +17,27 @@ const ReviewsList = () => {
   const categoryName = searchParams.get("category");
   
   useEffect(() => {
-    setIsLoading(true)
-    gamesAPI.get( categoryName ? `/reviews?sort_by=${sortBy}&order=${orderBy}&category=${categoryName}`
+    gamesAPI.get( categoryName 
+      ? `/reviews?sort_by=${sortBy}&order=${orderBy}&category=${categoryName}`
       : `/reviews?sort_by=${sortBy}&order=${orderBy}`)
     .then(({data}) => {
       setReviewsList(data)
       setIsLoading(false)
-    });
+    })
+    .catch((err) => {
+      setIsLoading(false) 
+      setErrState(true)
+      })
   }, [sortBy, orderBy, categoryName])
 
   if (isLoading) {
     return <p>Loading reviews...</p>
-  }
+  } else if (errState) {
+    return (
+    <>
+    <ErrorHandler/>
+    </>
+    )}
 
   return (
     <>
@@ -41,16 +51,17 @@ const ReviewsList = () => {
     <p>Order: {orderBy}</p>
     <button class="clicked" onClick={() => setOrderBy("desc")}>Descending (default)</button>
     <button class="clicked" onClick={() => setOrderBy("asc")}>Ascending</button>
-    { reviewsList.length === 0 ? <p>No reviews</p> : null}
+    { reviewsList.length === 0 ? <h3>No reviews</h3> : null}
     <ul>
       {reviewsList.map((review) => {
-        return <SingleReview key={review.review_id} review={review}/>
+        return <SingleReview key={review.review_id} review={review} setErrState={setErrState}/>
       })}
     </ul>
     </>
   )
 
 }
+
 
 
 export default ReviewsList

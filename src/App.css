@@ -4,8 +4,9 @@
   display: grid;
 }
 
+
 .nav-bar {
-  background-color: blue;
+  background-color: rgb(117, 117, 237);
   padding: 20px;
 }
 
@@ -41,6 +42,7 @@
 }
 
 .review {
+  list-style-position: inside;
   display: inline-block;
   overflow: hidden;
   width: 20vw;
@@ -49,6 +51,14 @@
   border: black solid 1px;
   padding: 15px;
   background-color: aliceblue;
+}
+
+#review-body {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #review-header {
@@ -70,20 +80,42 @@
   font-size: xx-large
 }
 
-.review-info {
+.review-info.center {
+display: block;
   padding: 20px;
+  align-items: center;
 }
 
-#comments-section {
-  margin: 40px;
+#comments-section.center {
+  margin: auto;
+  align-items: center;
+}
+
+.ReviewExtraInfo {
+  text-align: center;
+  display: grid;
 }
 
 .comment {
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
+  /* display: grid; */
+  align-items: center;
   list-style: none;
   background-color: aliceblue;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 1%;
+} 
+
+#comment-body {
+  font-size: x-large
+}
+
+#delete-button {
+  align-self: center;
+  width: 20%;
 }
 
 #reviews-title {

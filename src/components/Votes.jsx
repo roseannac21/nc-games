@@ -3,27 +3,30 @@ import gamesAPI from "../utils/api";
 
 const Votes = ({setLikeCount, likeCount, review}) => {
   
+    const [likeChange, setLikeChange] = useState(0);
     const [err, setErr] = useState(null);
 
     const handleLike = () => {
-        setLikeCount((currLikes) => {
-            return currLikes +1;
-        })
+        setLikeChange((currLikes) => 
+            currLikes +1
+        )
         setErr(null)
         gamesAPI.patch(`/reviews/${review.review_id}`, {inc_votes: 1})
         .catch((err) => {
+            setLikeChange(0)
             setLikeCount((currLikes) => currLikes-1)
             setErr(err)
         })
     }
 
     const handleDislike = () => {
-        setLikeCount((currLikes) => {
-            return currLikes -1;
-        })
+        setLikeChange((currLikes) => 
+             currLikes -1
+        )
         setErr(null)
         gamesAPI.patch(`/reviews/${review.review_id}`, {inc_votes: -1})
         .catch((err) => {
+            setLikeChange(0)
             setLikeCount((currLikes) => currLikes+1)
             setErr(err)
         })
@@ -31,9 +34,9 @@ const Votes = ({setLikeCount, likeCount, review}) => {
     
     return (
         <>
-        <button onClick={handleLike}>👍🏽</button>
-        <button onClick={handleDislike}>👎🏽</button>
-        <p>Votes: {likeCount}</p>
+        <button disabled={likeChange === 1} onClick={handleLike}>👍🏽</button>
+        <button disabled={likeChange === -1} onClick={handleDislike}>👎🏽</button>
+        <p>Votes: {likeCount + likeChange}</p>
         {err ? <p>{err.message}</p> : null}
         </>
     )
