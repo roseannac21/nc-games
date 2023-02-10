@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import DeleteComment from "./DeleteComment";
 import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
 const dayjs = require("dayjs")
