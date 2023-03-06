@@ -4,7 +4,6 @@
   display: grid;
 }
 
-
 .nav-bar {
   background-color: rgb(117, 117, 237);
   padding: 20px;
@@ -15,7 +14,8 @@
   margin: 15px;
 }
 
-.nav-item, :visited {
+.nav-item,
+:visited {
   color: aliceblue;
   margin: 15px;
 }
@@ -23,34 +23,33 @@
 #category-li {
   display: inline-block;
   overflow: hidden;
-  width: 8vw;
-  height: 11vh;
-  margin: 2vh;
-  border: black solid 1px;
-  padding: 2px;
+  margin: 2vw;
+  padding: 10px;
   background-color: aliceblue;
   list-style: none;
   color: black;
+  box-shadow: 0px 5px 5px hsl(0, 0%, 33%);
 }
 
-#category-li, :visited {
+#category-li,
+:visited {
   color: black;
 }
 
 #home {
-  font-size:xx-large;
+  font-size: xx-large;
 }
 
 .review {
-  list-style-position: inside;
-  display: inline-block;
-  overflow: hidden;
-  width: 20vw;
-  height: 35vh;
-  margin: 2vh;
-  border: black solid 1px;
-  padding: 15px;
+  box-shadow: 0px 5px 5px hsl(0, 0%, 33%);
+  align-items: center;
   background-color: aliceblue;
+  width: 50vw;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 1%;
 }
 
 #review-body {
@@ -62,26 +61,20 @@
 }
 
 #review-header {
-  font-size: xx-large
+  font-size: xx-large;
 }
 
-
 #home {
-  font-size:xx-large;
+  font-size: xx-large;
   height: fit-content;
-  }
-
-.review {
-  padding: 40px;
-  list-style: none;
 }
 
 #review-header {
-  font-size: xx-large
+  font-size: xx-large;
 }
 
 .review-info.center {
-display: block;
+  display: block;
   padding: 20px;
   align-items: center;
 }
@@ -107,10 +100,10 @@ display: block;
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 1%;
-} 
+}
 
 #comment-body {
-  font-size: x-large
+  font-size: x-large;
 }
 
 #delete-button {
@@ -123,17 +116,22 @@ display: block;
 }
 
 #review-title {
-  font-size: medium;
+  font-size: large;
   color: black;
   text-decoration: none;
 }
 
 #review-list-img {
-  max-height: 50%;
-  max-width: 50%;
+  height: 20vh;
+  padding: 15px;
 }
 
-h2#review-title, :active {
+/* h2#review-title,
+:active {
   color: black;
   text-decoration: none;
+} */
+
+.clicked {
+  color: rgb(0, 0, 0);
 }
