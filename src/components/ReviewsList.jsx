@@ -47,25 +47,40 @@ const ReviewsList = ({ errState, setErrState }) => {
       <h2 id="reviews-title">Reviews</h2>
       <h3>Browse through the reviews written by fellow board game lovers.</h3>
       <h4>Click on a review to read more!</h4>
-      <p>Sort by: {sortBy}</p>
-      <button class="clicked" onClick={() => setSortBy("created_at")}>
-        Date/Time (default)
+      <p>Sort by:</p>
+      <button
+        id={sortBy === "created_at" ? "button-clicked" : "filter-button"}
+        onClick={() => setSortBy("created_at")}
+      >
+        Date/Time
       </button>
-      <button class="clicked" onClick={() => setSortBy("comment_count")}>
+      <button
+        id={sortBy === "comment_count" ? "button-clicked" : "filter-button"}
+        onClick={() => setSortBy("comment_count")}
+      >
         Number of Comments
       </button>
-      <button class="clicked" onClick={() => setSortBy("votes")}>
+      <button
+        id={sortBy === "votes" ? "button-clicked" : "filter-button"}
+        onClick={() => setSortBy("votes")}
+      >
         Number of Votes
       </button>
-      <p>Order: {orderBy}</p>
-      <button class="clicked" onClick={() => setOrderBy("desc")}>
-        Descending (default)
+      <p>Order:</p>
+      <button
+        id={orderBy === "desc" ? "button-clicked" : "filter-button"}
+        onClick={() => setOrderBy("desc")}
+      >
+        Descending
       </button>
-      <button class="clicked" onClick={() => setOrderBy("asc")}>
+      <button
+        id={orderBy === "asc" ? "button-clicked" : "filter-button"}
+        onClick={() => setOrderBy("asc")}
+      >
         Ascending
       </button>
       {reviewsList.length === 0 ? <h3>No reviews</h3> : null}
-      <ul>
+      <p>
         {reviewsList.map((review) => {
           return (
             <SingleReview
@@ -75,7 +90,7 @@ const ReviewsList = ({ errState, setErrState }) => {
             />
           );
         })}
-      </ul>
+      </p>
     </>
   );
 };

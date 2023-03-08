@@ -12,7 +12,6 @@ const Categories = ({ errState, setErrState }) => {
     axios
       .get("https://nc-games-no2.onrender.com/api/categories")
       .then(({ data }) => {
-        console.log("hello");
         setErrState(false);
         setCategoryList(data.categories);
         setIsLoading(false);
